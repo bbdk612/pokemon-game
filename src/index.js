@@ -8,21 +8,42 @@ import ReactDOM from 'react-dom'
 // );
 
 const AppList = () => {
+    const items = ['Item1', 'Item2', "item3", "Item5"];
+    const firstItems = <li>Item 0</li>
+    const isAuth = true;
     return (
         <ul>
+            {
+                isAuth ? firstItems : null
+            }
+            {
+                items.map(item => <li>{item}</li>)
+            }
             <li>My first Element</li>
             <li>My Second Element</li>
+            <li> {items[0]} </li>
+            <li> {items[1]} </li>
         </ul>
     )
 }
 
 const AppHeader = () => <h1>This is my Header</h1>;
 
+const AppInput = () => {
+    const placeholder = "Type text..."
+    return (
+        <label>
+            <input placeholder={placeholder} />
+        </label>
+    )
+}
+
 
 const App = () => { 
     return (
         <>    
             <AppHeader />
+            <AppInput />
             <AppList />
             <AppHeader />
             <AppList />
