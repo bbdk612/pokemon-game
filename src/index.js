@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from 'react-dom'
 
+import HeaderBlock from "./components/HeaderBlock";
+
+import './index.css';
+
 // const el = React.createElement(
 //     'h1',
 //     null,
@@ -27,7 +31,15 @@ const AppList = () => {
     )
 }
 
-const AppHeader = () => <h1>This is my Header</h1>;
+const AppHeader = () => {
+    return (
+        <h1
+            className="header"
+        >
+            This is my Header
+        </h1>
+    );
+}
 
 const AppInput = () => {
     const placeholder = "Type text..."
@@ -41,7 +53,8 @@ const AppInput = () => {
 
 const App = () => { 
     return (
-        <>    
+        <>  
+            <HeaderBlock />  
             <AppHeader />
             <AppInput />
             <AppList />
