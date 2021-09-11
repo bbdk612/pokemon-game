@@ -1,8 +1,15 @@
 import Header from "./components/Header";
 import Layout from "./components/Layout";
 import Footer from "./components/Footer";
+import PokemonCard from "./components/PokemonCard";
 
-import Bg3Imbg from "./assets/bg3.jpg"
+import Bg3Imbg from "./assets/bg3.jpg";
+import Bg2Imbg from './assets/bg2.jpg';
+import Bg1Imbg from './assets/bg1.jpg';
+
+import POKEMONS from './assets/json/POKEMONS.json';
+
+import "./App.css";
 
 const App = () => { 
     return (
@@ -11,21 +18,49 @@ const App = () => {
                 title="This is new title"
                 desc="This is new desc" 
             />
-            <Layout 
-                title="test"
-                desc="Nullam id urna sit amet tortor facilisis iaculis et ac ante. Sed porttitor elementum nunc, volutpat placerat orci tincidunt eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut nunc urna, facilisis non augue quis, porta fringilla nulla. Mauris interdum varius nibh, et pretium purus euismod at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc porta, tortor sit amet facilisis accumsan, enim elit accumsan augue, sit amet ornare ex ante eget lorem. Integer laoreet leo vel scelerisque finibus. Fusce imperdiet lacus ac purus bibendum commodo. Aenean tempor gravida luctus. Curabitur scelerisque erat quis lacus dictum feugiat. Integer placerat viverra mattis. Nulla aliquet vulputate diam, eu iaculis lacus porta quis. Suspendisse aliquam tortor id est fringilla, et imperdiet leo blandit. Nunc tempus sed ligula non viverra. Donec vitae metus mi. "
+            <Layout
+                id="rules" 
+                title="Rules"
+                urlBg={Bg1Imbg}
+            >
+                <p>
+                    In the game two players face off against one another, one side playing as "blue", the other as "red" on a 3x3 grid.
+                    Each player has five cards in a hand and the aim is to capture the opponent's cards by turning them into the player's own color of red or blue.
+                </p>
+                <p>
+                    To win, a majority of the total ten cards played (including the one card that is not placed on the board) must be of the player's card color. To do this, the player must capture cards by placing a card adjacent to an opponent's card whereupon the 'ranks' of the sides where the two cards touch will be compared. If the rank of the opponent's card is higher than the player's card, the player's card will be captured and turned into the opponent's color. If the player's rank is higher, the opponent's card will be captured and changed into the player's color instead. 
+                </p>
+            </Layout>
+            <Layout
+                id="cards" 
+                title="Cards"
+                colorTitle="#fefefe"
+                colorBg="#202736"
+            >
+                <div className="flex">
+                    {POKEMONS.map((item, index) => <PokemonCard 
+                      key={index} 
+                      name={item.name}
+                      img={item.img}
+                      id={item.id}
+                      type={item.type}
+                      values={item.values} 
+                    />)}
+                </div> 
+            </Layout>
+            <Layout
+                id="about" 
+                title="Full Rules"
                 urlBg={Bg3Imbg}
-            />
-            <Layout 
-                title="test"
-                desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper eros ut sem placerat rhoncus. Vivamus nec quam lectus. Duis et purus ac nibh tincidunt scelerisque. Phasellus nec pretium massa. Integer vel lectus in orci facilisis vehicula vel eu turpis. In fermentum ante vel magna pellentesque cursus. Duis sit amet sem nec urna varius elementum. Integer dignissim dui non ligula facilisis, ut consectetur arcu luctus. Quisque blandit magna quis dapibus gravida."
-                colorBg="red"
-            />
-            <Layout 
-                title="test"
-                desc="Etiam porta ligula nunc, sit amet lobortis nisl pharetra id. Vivamus venenatis aliquet velit, vitae placerat elit pulvinar sed. Nam quam ligula, finibus sed sapien nec, accumsan vehicula lorem. Donec dapibus nulla at feugiat semper. Etiam eu massa tincidunt, aliquet eros et, fringilla turpis. Praesent quam erat, dignissim varius semper quis, congue facilisis risus. Fusce eget diam vitae ex iaculis ullamcorper et sed lacus. Vivamus ut vulputate quam, gravida pharetra quam. Duis luctus egestas elit in volutpat. Duis neque mauris, dapibus eget sagittis euismod, viverra eu nisi. Ut et tellus erat."
-                urlBg={Bg3Imbg}
-            />
+            >
+                <p>
+                    In the game two players face off against one another, one side playing as "blue", the other as "red" on a 3x3 grid.
+                    Each player has five cards in a hand and the aim is to capture the opponent's cards by turning them into the player's own color of red or blue.
+                </p>
+                <p>
+                    To win, a majority of the total ten cards played (including the one card that is not placed on the board) must be of the player's card color. To do this, the player must capture cards by placing a card adjacent to an opponent's card whereupon the 'ranks' of the sides where the two cards touch will be compared. If the rank of the opponent's card is higher than the player's card, the player's card will be captured and turned into the opponent's color. If the player's rank is higher, the opponent's card will be captured and changed into the player's color instead. 
+                </p>
+            </Layout>
             <Footer />
         </>
     )

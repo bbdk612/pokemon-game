@@ -1,9 +1,9 @@
 import s from './style.module.css';
 
-const Layout = ({title, desc, urlBg=null, colorBg=null}) => {
+const Layout = ({id, title, colorTitle, urlBg=null, colorBg=null, children}) => {
 
     return (
-        <section className={s.root}>
+        <section className={s.root} id={id}>
         <div 
             className={s.wrapper}
             style={{
@@ -12,11 +12,11 @@ const Layout = ({title, desc, urlBg=null, colorBg=null}) => {
             }} 
         >
             <article>
-                <div className={s.title}>
+                <div className={s.title} style={{color: colorTitle}}>
                     <h3>{title}</h3>
                     <span className={s.separator}></span>
                 </div>
-                <div className={`${s.desc} ${s.full}`}>{desc}</div>
+                <div className={`${s.desc} ${s.full}`}>{children}</div>
             </article>
         </div>
         </section>
