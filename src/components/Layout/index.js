@@ -3,6 +3,7 @@ import s from './style.module.css';
 const Layout = ({title, desc, urlBg=null, colorBg=null}) => {
 
     return (
+        <section className={s.root}>
         <div 
             className={s.wrapper}
             style={{
@@ -18,6 +19,7 @@ const Layout = ({title, desc, urlBg=null, colorBg=null}) => {
                 <div className={`${s.desc} ${s.full}`}>{desc}</div>
             </article>
         </div>
+        </section>
     )
 };
 
